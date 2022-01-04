@@ -1,4 +1,4 @@
-# Build a Package `typescript`
+# Build a Package based on `typescript`
 
 ## Create a git repository
 
@@ -72,13 +72,13 @@ npm install --save-dev prettier
 echo "" >> .prettierrc
 ```
 
-Edit the .prettierrc: 
+Edit the .prettierrc:
 
 ```json
 {
-    "printWidth": 120,
-    "trailingComma": "all",
-    "singleQuote": true
+  "printWidth": 120,
+  "trailingComma": "all",
+  "singleQuote": true
 }
 ```
 
@@ -86,9 +86,9 @@ Modify the package.json:
 
 ```json
 {
-    "scripts":{
-        "format": "prettier --write \"src/**/*.ts\"",
-    }
+  "scripts": {
+    "format": "prettier --write \"src/**/*.ts\""
+  }
 }
 ```
 
@@ -112,20 +112,15 @@ Edit the eslintrc.js:
 
 ```js
 module.exports = {
-    root: true,
-    parser: '@typescript-eslint/parser',
-    plugins: [
-        '@typescript-eslint',
-    ],
-    extends: [
-        'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
-    ],
-    env: {
-        browser: true,
-        es6: true,
-        jest: true,
-    },
+  root: true,
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint"],
+  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  env: {
+    browser: true,
+    es6: true,
+    jest: true,
+  },
 };
 ```
 
@@ -144,9 +139,9 @@ Modify the package.json:
 
 ```json
 {
-    "scripts":{
-        "eslint": "eslint . --ext .js,.jsx,.ts,.tsx"
-    }
+  "scripts": {
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  }
 }
 ```
 
