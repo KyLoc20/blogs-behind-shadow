@@ -198,7 +198,9 @@ Add this to the package.json:
 
 ```json
 {
-  "prepare": "npm run build"
+  "scripts": {
+    "prepare": "npm run build"
+  }
 }
 ```
 
@@ -208,7 +210,9 @@ Add this to the package.json:
 
 ```json
 {
-  "prepublishOnly": "npm test && npm run lint"
+  "scripts": {
+    "prepublishOnly": "npm test && npm run eslint"
+  }
 }
 ```
 
@@ -218,7 +222,9 @@ Add this to the package.json:
 
 ```json
 {
-  "preversion": "npm run lint"
+  "scripts": {
+    "preversion": "npm run eslint"
+  }
 }
 ```
 
@@ -228,8 +234,10 @@ Add this to the package.json:
 
 ```json
 {
-  "version": "npm run format && git add -A src",
-  "postversion": "git push && git push --tags"
+  "scripts": {
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  }
 }
 ```
 
@@ -245,4 +253,11 @@ Modify the package.json:
   "keywords": [],
   "author": ""
 }
+```
+
+## Publish to NPM
+
+```bash
+npm login
+npm publish
 ```
