@@ -98,7 +98,7 @@ Now run the format command:
 npm run format
 ```
 
-# Linting
+## Linting
 
 Install Eslint and its friends
 
@@ -152,3 +152,97 @@ npm run format
 ```
 
 You can also get results in realtime inside most IDEs via a plugin - search your IDE's extension store such as `ESLint` in vscode.
+
+## Testing with Jest
+
+```bash
+npm install --save-dev ts-node
+npm install --save-dev jest ts-jest @types/jest
+echo "" >> jest.config.ts
+```
+
+Edit the jest.config.ts:
+
+```ts
+import type { Config } from "@jest/types";
+
+// Sync object
+const config: Config.InitialOptions = {
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  preset: "ts-jest",
+};
+export default config;
+```
+
+Modify the package.json:
+
+```json
+{
+  "scripts": {
+    "test": "jest"
+  }
+}
+```
+
+Now run the test command:
+
+```bash
+npm test
+```
+
+## Use magic scripts
+
+_prepare_ will run both _BEFORE_ the package is packed and published, and locally `npm install`.
+
+Add this to the package.json:
+
+```json
+{
+  "prepare": "npm run build"
+}
+```
+
+_prepublishOnly_ will run _BEFORE_ _prepare_ and _ONLY_ on `npm publish`
+
+Add this to the package.json:
+
+```json
+{
+  "prepublishOnly": "npm test && npm run lint"
+}
+```
+
+_preversion_ will run _BEFORE_ bumping a new package version.
+
+Add this to the package.json:
+
+```json
+{
+  "preversion": "npm run lint"
+}
+```
+
+_version_ wiil run _AFTER_ a new version has been bumped
+
+Add this to the package.json:
+
+```json
+{
+  "version": "npm run format && git add -A src",
+  "postversion": "git push && git push --tags"
+}
+```
+
+## Finishing up package.json
+
+Modify the package.json:
+
+```json
+{
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "keywords": [],
+  "author": ""
+}
+```
