@@ -1,4 +1,4 @@
-# Unstyled Component: a stepping stone to UI building
+# Unstyled Component: a Stepping Stone To UI Building
 
 An Unstyled Component is a free-to-style Component keeping only the core functionality.
 
