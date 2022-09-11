@@ -1,6 +1,6 @@
 # Write a Form (1): Understand its Functionality 
 
-Basically, a Form consists of a `smart` container and its input elements. 
+Basically, a Form consists of a `smart` container and its elements. 
 
 ```html
 <form>
@@ -13,9 +13,9 @@ Basically, a Form consists of a `smart` container and its input elements.
 
 ## Overview
 
-Usually *input elements* handle input from users while the *form container* do these things:
+Usually *form elements* handle input from users while the *form container* do these things:
 
-- Keeping mutable states and handle updates from input elements.
+- Keeping mutable states and handle updates from form elements.
 - Rendering a friendly form-like UI.
 - Handling Validation before Submitting.
 - Handling Submit event.
@@ -24,7 +24,7 @@ In the following parts, these 4 jobs above will be discussed.
 
 Here is the simplest form component in React:
 
-```typescript
+```tsx
 function Form() {
 
     const [value1,setValue1] = useState("")

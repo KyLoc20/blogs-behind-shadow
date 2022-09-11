@@ -90,7 +90,7 @@ In my Inplementation of sxProps, I include CSS properties as many as possible. S
 
 Basically a factory function is provided with the help of [emotion](https://github.com/emotion-js/emotion) CSS-in-JS support].styled.
 
-```typescript
+```tsx
 import styled, { StyledComponent } from "@emotion/styled";
 type sxProps = SpacingProps &
   PaperProps &
@@ -149,7 +149,7 @@ As you can see, some shortcuts for property names are used like "m"("margin"), "
 
 Without sxProps, you have write components with styles one by one:
 
-```typescript
+```tsx
 import styled, { StyledComponent } from "@emotion/styled";
 
 const Wrapper = styled("div")`
@@ -187,7 +187,7 @@ function ExampleWithoutSxProps() {
 
 with sxProps, you don't bother to define and name you components just using an UnstyledBox:
 
-```typescript
+```tsx
 import styled from "@emotion/styled";
 import { sxProps, createUnstyleComponent } from "@/system/sx";
 //define styles in common here
