@@ -39,12 +39,13 @@ Plus, there are following options to specify more details:
 - `allowSyntheticDefaultImports` enables default import. 
 
 ## Step2: Setup package.json
-
+ 
 ```json
 {
     "name": "@who/what",
-    "version": "0.1.0",
     "description": "xxxxx",
+    "version": "0.1.0",
+    "type": "module",
     "main": "build/index.js",
     "types": "build/index.d.ts",
     "files": [
@@ -72,6 +73,7 @@ Plus, there are following options to specify more details:
 ```
 
 This is a basic setting:
+- `type` defines how Node.js should interpret .js files. If a package.json file does not have a "type" field, .js files are treated as `CommonJS`. If "module", .js files are treated as `ES Module`. See more details in [package.json and file extensions](https://nodejs.org/api/packages.html#packagejson-and-file-extensions).
 - `main` defines entrypoint of the package as a module.
 - `types` declares where to find the type declarations otherwise the consumer won't find your module.
 - `files` whitelists the files you wanna ship to the npm registry.
@@ -113,6 +115,13 @@ export default function TextField(props: PropsWithChildren<TextFieldProps>) {
 }
 ```
 
+> It's NOT recommended to import stuff from a directory 
+> - ❌ `import {XXX} from "./TextField"`
+> - ✔️ `import {XXX} from "./TextField/TextField.js"` or `import {XXX} from "./TextField/index.js"`
+
+> - ❌ `import { throttle } from "lodash;"`
+> - ✔️ `import lodash from "lodash";const { throttle } = lodash;"`
+ 
 Let's transpile all .ts/tsx files in `./src` into .js file in `./build`:
 
 ```bash  
