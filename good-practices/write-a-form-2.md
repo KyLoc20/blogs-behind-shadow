@@ -114,4 +114,4 @@ Now `SelfHostedInput` is truly *self-hosted*, and its update won't cause its `Fo
 
 > This way only works in the situation where the `Form`'s UI is NOT dependent on any input value.
 
-Next part let's talk about how to customize a useful validator for each input.
+Next part will talk about how to unify various input elements.

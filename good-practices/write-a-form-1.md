@@ -13,16 +13,16 @@ Basically, a Form consists of a `smart` container and its elements.
 
 ## Overview
 
-Usually *form elements* handle input from users while the *form container* do these things:
+Usually *form elements* handle input from users while *form container* do these things:
 
-- Keeping mutable states and handle updates from form elements.
-- Rendering a friendly form-like UI.
-- Handling Validation before Submitting.
-- Handling Submit event.
+- Keep mutable states and handle updates from form elements.
+- Render a friendly form-like UI.
+- Handle Validation before Submitting.
+- Handle Submit event.
 
 In the following parts, these 4 jobs above will be discussed.
 
-Here is the simplest form component in React:
+Here is a simple form component in React:
 
 ```tsx
 function Form() {
@@ -49,8 +49,8 @@ function Form() {
 
 Benefiting from using `<form>`, this HTML tag provides us with some default behavior:
 
-- Listening to *Submit Event* from its elements. `<input type="submit" />` or `<button type="submit" />` both could trigger this event so that you don't bother to define an extra event handler.
-- Validating format of input data before `onSubmit` which is quite useful.
-- Browsing to a new page defined in the attribute of `action`, however, often we need do more things in `handleSubmit` so block it by `event.preventDefault()`.
+- Listen to *Submit Event* from its elements. `<input type="submit" />` or `<button type="submit" />` both could trigger this event so that you don't bother to define an extra event handler.
+- Validate input data before `onSubmit` which is quite useful.
+- Browse to a new page defined in the attribute of `action`, however, often we need do more things in `handleSubmit` so block it by `event.preventDefault()`.
 
 Next part let's talk about how to optimize our Form using the intrinsic *controlled* feature.
