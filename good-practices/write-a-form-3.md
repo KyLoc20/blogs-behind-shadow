@@ -1,4 +1,4 @@
-# Write a Form (3): Unified Input 
+# Write a Form (3): Unified Input Components
 
 Everyday we write various input elements to deal with various types like string, number and boolean.
 
